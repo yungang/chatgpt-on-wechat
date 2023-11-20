@@ -1,5 +1,6 @@
 # bot_type
 OPEN_AI = "openAI"
+GREAT_TIT = "greatTit"
 CHATGPT = "chatGPT"
 BAIDU = "baidu"
 XUNFEI = "xunfei"

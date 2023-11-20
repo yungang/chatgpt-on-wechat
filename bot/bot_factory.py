@@ -26,6 +26,11 @@ def create_bot(bot_type):
         # OpenAI 官方对话模型API
         from bot.openai.open_ai_bot import OpenAIBot
         return OpenAIBot()
+    
+    elif bot_type == const.GREAT_TIT:
+        # OpenAI 官方对话模型API
+        from bot.great_tit.great_tit_bot import GreatTitBot
+        return GreatTitBot()
 
     elif bot_type == const.CHATGPTONAZURE:
         # Azure chatgpt service https://azure.microsoft.com/en-in/products/cognitive-services/openai-service/
