@@ -125,10 +125,11 @@ class GreatTitBot(Bot, OpenAIImage):
             # response = openai.ChatCompletion.create(api_key=api_key, messages=session.messages, **args)
             # logger.debug("[GREAT-TIT] response={}".format(response))
             # logger.info("[GREAT-TIT] reply={}, total_tokens={}".format(response.choices[0]['message']['content'], response["usage"]["total_tokens"]))
+            data = response["data"] if 'data' in response else {}
             return {
-                "total_tokens": response["data"]["max_tokens"],
+                "total_tokens": data["max_tokens"] if data and "max_tokens" in data else 0,
                 "completion_tokens": 0,
-                "content": response["data"]["answer"],
+                "content": data["answer"] if data and "answer" in data else "系统出错了，我等下看看再回复您",
             }
         except Exception as e:
             need_retry = retry_count < 2
