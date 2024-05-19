@@ -120,6 +120,8 @@ class GreatTitBot(Bot, OpenAIImage):
                 'project_id': 1,
                 'model': 'gpt-3.5-turbo',
                 'question': session.messages[-1]['content'],
+                'engine': 'both',
+                'stream': False
             }
             response = requests.post(api_base, json=data).json()
             # response = openai.ChatCompletion.create(api_key=api_key, messages=session.messages, **args)
